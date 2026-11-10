@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>manic.club</title>
+<meta name="description" content="Games for people who like being in the same room.">
+<meta name="theme-color" content="#0E0E0F">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="manic.club">
+<meta property="og:description" content="Games for people who like being in the same room.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manic.club">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<style>
+  :root {
+    --bg: #0E0E0F;
+    --ink: #F4F1EA;
+    --muted: #8D8A84;
+    --red: #FF3B2F;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    place-items: center;
+    padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
+  }
+  /* a soft red glow behind the logo, breathing very slowly */
+  body::before {
+    content: "";
+    position: fixed;
+    left: 50%; top: 42%;
+    width: min(120vw, 900px); height: min(120vw, 900px);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, rgba(255, 59, 47, .16), rgba(255, 59, 47, 0) 70%);
+    pointer-events: none;
+    animation: breathe 7s ease-in-out infinite;
+  }
+  main { position: relative; text-align: center; width: 100%; max-width: 640px; }
+  .logo { width: min(78vw, 520px); height: auto; display: block; margin: 0 auto; overflow: visible; }
+  .swoosh {
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: draw 1.6s cubic-bezier(.65, 0, .25, 1) .15s forwards;
+  }
+  .letters { opacity: 0; animation: fade .9s ease-out .7s forwards; }
+  h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .line {
+    margin: clamp(28px, 6vh, 48px) auto 0;
+    max-width: 30ch;
+    font-size: clamp(18px, 3.6vw, 22px);
+    line-height: 1.45;
+    letter-spacing: .005em;
+    opacity: 0; transform: translateY(8px);
+    animation: rise .9s ease-out 1.7s forwards;
+  }
+  .next {
+    margin: 18px auto 0;
+    font-size: 14px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0; animation: fade 1s ease-out 2.2s forwards;
+  }
+  .next b { color: var(--ink); font-weight: 600; }
+  .next i { font-style: normal; color: var(--red); }
+  footer {
+    position: fixed; left: 0; right: 0; bottom: max(18px, env(safe-area-inset-bottom));
+    text-align: center; font-size: 12px; letter-spacing: .12em; color: #55534F;
+    opacity: 0; animation: fade 1s ease-out 2.6s forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fade { to { opacity: 1; } }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @keyframes breathe { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before { animation: none !important; }
+    .swoosh { stroke-dashoffset: 0; }
+    .letters, .line, .next, footer { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>manic.club</h1>
+    <svg class="logo" viewBox="-40 -40 410 250" role="img" aria-label="manic.club">
+      <g transform="scale(0.97059 1.41667)">
+        <path class="swoosh" pathLength="1" d="M22 62 C 10 22, 120 6, 220 14 C 300 20, 332 60, 300 92 C 260 122, 80 120, 30 94 C 6 80, 20 42, 96 24" fill="none" stroke="#FF3B2F" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <path class="letters" d="M75.39999999999999 107.22V72.5H84.07999999999998V76.28H85.33999999999999Q86.24999999999999 74.53 88.35 73.235Q90.44999999999999 71.94 93.88 71.94Q97.58999999999999 71.94 99.82999999999998 73.375Q102.07 74.81 103.25999999999999 77.12H104.51999999999998Q105.70999999999998 74.88 107.87999999999998 73.41Q110.04999999999998 71.94 114.03999999999999 71.94Q117.25999999999999 71.94 119.88499999999999 73.30499999999999Q122.50999999999999 74.66999999999999 124.085 77.43499999999999Q125.66 80.19999999999999 125.66 84.39999999999999V107.22H116.83999999999999V85.03Q116.83999999999999 82.16 115.36999999999999 80.725Q113.89999999999999 79.28999999999999 111.23999999999998 79.28999999999999Q108.22999999999999 79.28999999999999 106.585 81.215Q104.94 83.14 104.94 86.71V107.22H96.11999999999999V85.03Q96.11999999999999 82.16 94.64999999999999 80.725Q93.17999999999999 79.28999999999999 90.51999999999998 79.28999999999999Q87.50999999999999 79.28999999999999 85.86499999999998 81.215Q84.21999999999998 83.14 84.21999999999998 86.71V107.22Z M143.16 108.2Q139.45 108.2 136.51 106.905Q133.57 105.61 131.855 103.125Q130.14 100.64 130.14 97.07Q130.14 93.5 131.855 91.08500000000001Q133.57 88.67 136.615 87.445Q139.66 86.22 143.57999999999998 86.22H153.1V84.25999999999999Q153.1 81.81 151.56 80.235Q150.01999999999998 78.66 146.66 78.66Q143.37 78.66 141.76 80.16499999999999Q140.14999999999998 81.67 139.66 84.05L131.54 81.32Q132.38 78.66 134.235 76.455Q136.09 74.25 139.20499999999998 72.88499999999999Q142.32 71.52 146.79999999999998 71.52Q153.66 71.52 157.64999999999998 74.94999999999999Q161.64 78.38 161.64 84.89V97.84Q161.64 99.94 163.6 99.94H166.39999999999998V107.22H160.51999999999998Q157.93 107.22 156.25 105.96000000000001Q154.57 104.7 154.57 102.6V102.53H153.23999999999998Q152.95999999999998 103.37 151.98 104.735Q151.0 106.1 148.89999999999998 107.15Q146.79999999999998 108.2 143.16 108.2ZM144.7 101.06Q148.41 101.06 150.755 98.995Q153.1 96.92999999999999 153.1 93.5V92.8H144.20999999999998Q141.76 92.8 140.35999999999999 93.85Q138.95999999999998 94.9 138.95999999999998 96.78999999999999Q138.95999999999998 98.67999999999999 140.42999999999998 99.87Q141.89999999999998 101.06 144.7 101.06Z M170.04 107.22V72.5H178.72V77.05H179.98Q180.82 75.22999999999999 183.13 73.585Q185.44 71.94 190.13 71.94Q194.19 71.94 197.23499999999999 73.79499999999999Q200.27999999999997 75.64999999999999 201.95999999999998 78.905Q203.64 82.16 203.64 86.5V107.22H194.82V87.19999999999999Q194.82 83.28 192.89499999999998 81.32Q190.97 79.36 187.39999999999998 79.36Q183.33999999999997 79.36 181.09999999999997 82.055Q178.85999999999999 84.75 178.85999999999999 89.58V107.22Z M210.35999999999999 107.22V72.5H219.17999999999998V107.22ZM214.76999999999998 68.44Q212.39 68.44 210.745 66.89999999999999Q209.1 65.35999999999999 209.1 62.839999999999996Q209.1 60.31999999999999 210.745 58.779999999999994Q212.39 57.239999999999995 214.76999999999998 57.239999999999995Q217.21999999999997 57.239999999999995 218.82999999999998 58.779999999999994Q220.44 60.31999999999999 220.44 62.839999999999996Q220.44 65.35999999999999 218.82999999999998 66.89999999999999Q217.21999999999997 68.44 214.76999999999998 68.44Z M242.48999999999998 108.2Q237.45 108.2 233.35499999999996 106.1Q229.25999999999996 104.0 226.87999999999997 100.00999999999999Q224.49999999999997 96.02 224.49999999999997 90.35V89.37Q224.49999999999997 83.69999999999999 226.87999999999997 79.71Q229.25999999999996 75.72 233.35499999999996 73.62Q237.45 71.52 242.48999999999998 71.52Q247.45999999999998 71.52 251.02999999999997 73.27Q254.59999999999997 75.02 256.80499999999995 78.065Q259.01 81.11 259.71 84.96L251.17 86.78Q250.89 84.67999999999999 249.90999999999997 83Q248.92999999999998 81.32 247.14499999999998 80.34Q245.35999999999999 79.36 242.7 79.36Q240.03999999999996 79.36 237.90499999999997 80.515Q235.76999999999998 81.67 234.54499999999996 83.945Q233.31999999999996 86.22 233.31999999999996 89.50999999999999V90.21Q233.31999999999996 93.5 234.54499999999996 95.775Q235.76999999999998 98.05 237.90499999999997 99.205Q240.03999999999996 100.36 242.7 100.36Q246.68999999999997 100.36 248.75499999999997 98.295Q250.81999999999996 96.23 251.37999999999997 92.87L259.91999999999996 94.9Q259.01 98.61 256.80499999999995 101.655Q254.59999999999997 104.7 251.02999999999997 106.45Q247.45999999999998 108.2 242.48999999999998 108.2Z" fill="#F4F1EA"/>
+    </svg>
+    <p class="line">Games for people who like being in the same room.</p>
+    <p class="next">First up: <b>RekludØ</b> <i>·</i> coming soon</p>
+  </main>
+  <footer>© 2026 MANIC.CLUB</footer>
+</body>
+</html>
